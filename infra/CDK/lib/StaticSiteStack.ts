@@ -75,8 +75,5 @@ export class StaticSiteStack extends cdk.Stack {
     // データの更新・管理がしやすいように、デプロイスクリプトをshファイルとして /frontend に分離している
     new cdk.CfnOutput(this, 'BucketName', {value: siteBucket.bucketName});
     new cdk.CfnOutput(this, 'DistributionDomainId', { value: distribution.distributionId });
-    new cdk.CfnOutput(this, 'UploadCommand', {
-      value: `./../../frontend/resources/upload_to_s3.sh`,
-    });
   }
 }

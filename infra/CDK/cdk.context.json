@@ -1,0 +1,10 @@
+{
+  "hosted-zone:account=376746390444:domainName=kerokerodev.jp:region=ap-northeast-1": {
+    "Id": "/hostedzone/Z10371711U4L74QPI2CY7",
+    "Name": "kerokerodev.jp."
+  },
+  "hosted-zone:account=376746390444:domainName=kerokero.click:region=ap-northeast-1": {
+    "Id": "/hostedzone/Z10319271BI4M700GFA8O",
+    "Name": "kerokero.click."
+  }
+}

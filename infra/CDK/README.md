@@ -1,14 +1,21 @@
-# Welcome to your CDK TypeScript project
+# CDKによるリソース管理
+- portforio等の静的ページを公開するために使う各種リソースをAWS CDKによって定義します
+- ※AWS CertificateManager(ACM)で発行するTLS証明書は、コンソール上で作成したものをARNを参照することで利用しています
 
-This is a blank project for CDK development with TypeScript.
+## 実行手順など
+- まずは、AWS CDKがローカル環境に導入されていることを確認してください
+  - AWS CLIがインストールされていること
+  - AWS CLI が設定されていること (`aws configure` コマンドを使用)
+  - Node.js と npm がインストールされていること
+  - AWS CDK がインストールされていること (`npm install -g aws-cdk`)
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+- ルートディレクトリ直下に`.env.example`を参考に`.env`を用意します
 
-## Useful commands
+- `/infra/CDK`ディレクトリ内で、`npm ci`を実行して依存パッケージを取得する
+- 下記コマンドを`/infra/CDK`ディレクトリ内で実行することcdk deployが開始されます 
+    - `$ npm run build && npm run cdk -- --app="./bin/cdk.js" destroy StaticSiteStack` 
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `npx cdk deploy`  deploy this stack to your default AWS account/region
-* `npx cdk diff`    compare deployed stack with current state
-* `npx cdk synth`   emits the synthesized CloudFormation template
+## スナップショットテストについて
+- Stack定義を変更する前に、事前に`npm test -- -u`を実行して起き、スナップショットを作成しておくことをお勧めします
+- CDKのリソース定義(Stack定義)に変更を加えた際には`npm test`を実行し、変更箇所により他リソースへと影響が出ていないかを確認することをお勧めします
+- 変更箇所以外に差分が見られないことが確認出来たら、`npm test -- -u`でスナップショットテストの結果を更新して運用することをお勧めします

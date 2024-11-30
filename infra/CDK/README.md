@@ -13,7 +13,7 @@
 
 - `/infra/CDK`ディレクトリ内で、`npm ci`を実行して依存パッケージを取得する
 - 下記コマンドを`/infra/CDK`ディレクトリ内で実行することcdk deployが開始されます 
-    - `$ npm run build && npm run cdk -- --app="./bin/cdk.js" destroy StaticSiteStack` 
+    - `$ npm run build && npm run cdk -- --app="./bin/cdk.js" deploy StaticSiteStack` 
 
 ## スナップショットテストについて
 - Stack定義を変更する前に、事前に`npm test -- -u`を実行して起き、スナップショットを作成しておくことをお勧めします

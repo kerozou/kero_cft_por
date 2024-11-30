@@ -16,6 +16,8 @@
 - 下記コマンドを`/infra/CDK`ディレクトリ内で実行することcdk deployが開始されます 
     - `$ npm run build && npm run cdk -- --app="./bin/cdk.js" deploy StaticSiteStack` 
 
+- もしくは、mainブランチにマージされた際にgithub actionsのworkflowによって同様の操作が行われます
+
 ## スナップショットテストについて
 - Stack定義を変更する前に、事前に`npm test -- -u`を実行して起き、スナップショットを作成しておくことをお勧めします
 - CDKのリソース定義(Stack定義)に変更を加えた際には`npm test`を実行し、変更箇所により他リソースへと影響が出ていないかを確認することをお勧めします

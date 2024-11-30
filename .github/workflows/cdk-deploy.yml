@@ -39,3 +39,14 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         working-directory: infra/CDK
+
+      - name: Install GitHub CLI
+        run: sudo apt-get install gh
+
+      - name: Create or Update Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG_NAME="v$(date +'%Y%m%d%H%M%S')"
+          RELEASE_NAME="Release $TAG_NAME"
+          gh release create $TAG_NAME --title "$RELEASE_NAME" --notes "Automated release from GitHub Actions"

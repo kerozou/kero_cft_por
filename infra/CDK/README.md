@@ -1,6 +1,7 @@
 # CDKによるリソース管理
 - portforio等の静的ページを公開するために使う各種リソースをAWS CDKによって定義します
 - ※AWS CertificateManager(ACM)で発行するTLS証明書は、コンソール上で作成したものをARNを参照することで利用しています
+- ※cdk.context.jsonはキャッシュ情報を保持しているのでcommitに含めるのが理想ですが、今回はpublicに公開しているためignoreしています
 
 ## 実行手順など
 - まずは、AWS CDKがローカル環境に導入されていることを確認してください

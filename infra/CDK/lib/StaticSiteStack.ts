@@ -17,6 +17,7 @@ export class StaticSiteStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
+    // 環境変数の取得
     const domainName = process.env.DOMAIN_NAME!;
     const subdomainName = process.env.SUBDOMAIN_NAME!;
     const certificateArn = process.env.CERTIFICATE_ARN!;

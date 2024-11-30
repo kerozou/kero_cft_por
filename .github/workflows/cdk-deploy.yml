@@ -19,6 +19,14 @@ jobs:
         run: npm ci
         working-directory: infra/CDK
 
+      - name: Load environment variables
+        run: |
+          echo "DOMAIN_NAME=${{ secrets.DOMAIN_NAME }}" >> $GITHUB_ENV
+          echo "SUBDOMAIN_NAME=${{ secrets.SUBDOMAIN_NAME }}" >> $GITHUB_ENV
+          echo "CERTIFICATE_ARN=${{ secrets.CERTIFICATE_ARN }}" >> $GITHUB_ENV
+          echo "CDK_DEFAULT_ACCOUNT=${{ secrets.CDK_DEFAULT_ACCOUNT }}" >> $GITHUB_ENV
+          echo "CDK_DEFAULT_REGION=${{ secrets.CDK_DEFAULT_REGION }}" >> $GITHUB_ENV
+
       - name: Build
         run: npm run build
         working-directory: infra/CDK
